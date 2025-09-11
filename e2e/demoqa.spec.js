@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import data from "../testData/demoqa.json"
 
-test.only('Verify Demo QA Text box fields', async ({ page }) => {
+test('Verify Demo QA Text box fields', async ({ page }) => {
 
     await page.goto('https://demoqa.com/')
     await page.locator("(//div[contains(@class,'avatar mx-auto')])[1]").click()
@@ -20,13 +20,3 @@ test.only('Verify Demo QA Text box fields', async ({ page }) => {
     await expect(page.locator('#name')).toContainText(data.fullname);
 
 })
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
