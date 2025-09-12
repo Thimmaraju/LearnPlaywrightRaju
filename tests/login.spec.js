@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('Verify Login with Valid credentials', async ({ page }) => {
 
-    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    await page.goto('/web/index.php/auth/login')
 
     await page.locator("//input[@placeholder='Usernameewrfre']").fill('Admin')
 
@@ -12,7 +12,7 @@ test('Verify Login with Valid credentials', async ({ page }) => {
 
     // verify method1 
 
-    await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
+   // await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
 
     //or 
 
@@ -24,7 +24,7 @@ test('Verify Login with Valid credentials', async ({ page }) => {
 
 test('Verify Login with Valid Username and Invalid Password', async ({ page }) => {
 
-    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    await page.goto('/web/index.php/auth/login')
 
     await page.locator("//input[@placeholder='Username']").fill('Admin')
 
@@ -41,7 +41,7 @@ test('Verify Login with Valid Username and Invalid Password', async ({ page }) =
 
 test('Verify Login with INValid Username and valid Password', async ({ page }) => {
 
-    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    await page.goto('/web/index.php/auth/login')
 
     await page.locator("//input[@placeholder='Username']").fill('vjfewf')
 

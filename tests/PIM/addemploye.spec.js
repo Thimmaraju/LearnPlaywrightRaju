@@ -10,6 +10,8 @@ test('Verify Add employee with Mandatory details', async ({ page }) => {
   await page.getByRole('textbox', { name: 'First Name' }).fill('Raju');
   await page.getByRole('textbox', { name: 'Last Name' }).click();
   await page.getByRole('textbox', { name: 'Last Name' }).fill('G');
+
+  await page.locator('//input[@type="file"]').setInputFiles('testData/uploadfiles/Cat.jpg')
   await page.getByRole('button', { name: 'Save' }).click();
   await expect(page.getByRole('heading', { name: 'Personal Details' })).toBeVisible();
 });
