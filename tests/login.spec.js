@@ -4,9 +4,9 @@ test('Verify Login with Valid credentials', async ({ page }) => {
 
     await page.goto('/web/index.php/auth/login')
 
-    await page.locator("//input[@placeholder='Usernameewrfre']").fill('Admin')
+    await page.locator("//input[@placeholder='Usernameewrfre']").fill(process.env.APP_USERNAME)
 
-    await page.locator("//input[@type='password']").fill('admin123')
+    await page.locator("//input[@type='password']").fill(process.env.APP_PASSWORD)
 
     await page.locator("//button[@type='submit']").click()
 
