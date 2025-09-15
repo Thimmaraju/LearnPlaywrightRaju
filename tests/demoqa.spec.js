@@ -19,6 +19,8 @@ test.only('Verify Demo QA Text box fields', async ({ page }) => {
 
     await expect(page.locator('#name')).toContainText(data.fullname);
 
+     //process.env.ORDERNUMBER = ""
+
 })
 
 test('get started link', async ({ page }) => {
