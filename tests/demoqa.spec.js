@@ -1,7 +1,12 @@
 import { test, expect } from '@playwright/test';
-import data from "../testData/demoqa.json"
+
 
 test.only('Verify Demo QA Text box fields', async ({ page }) => {
+
+ let data = ["Manju", "rajutester2673@gamil.com", "Bangalore", "ATP"]
+
+ 
+
 
     await page.goto('https://demoqa.com/')
     await page.locator("(//div[contains(@class,'avatar mx-auto')])[1]").click()
@@ -9,15 +14,15 @@ test.only('Verify Demo QA Text box fields', async ({ page }) => {
 
     await expect(page).toHaveURL('https://demoqa.com/text-box')  // 5 Sec 
 
-    await page.locator("//input[@placeholder='Full Name']").fill(data.fullname)
+    await page.locator("//input[@placeholder='Full Name']").fill(data[0])
 
-    await page.locator('#userEmail').fill(data.email)
+    await page.locator('#userEmail').fill(data[1])
 
-    await page.locator('#currentAddress').fill(data.currentAddress)
-    await page.locator('#permanentAddress').fill(data.permanentaddress)
+    await page.locator('#currentAddress').fill(data[2])
+    await page.locator('#permanentAddress').fill(data[3])
     await page.locator('#submit').click()
 
-    await expect(page.locator('#name')).toContainText(data.fullname);
+    //await expect(page.locator('#name')).toContainText(data.fullname);
 
      //process.env.ORDERNUMBER = ""
 

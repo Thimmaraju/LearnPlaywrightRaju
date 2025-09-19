@@ -1,14 +1,21 @@
 import { test, expect } from '@playwright/test';
 
+
+  let  username = "Admin"
+
+  let password = "admin123"
+  
+  let endpoint = `/web/index.php/auth/login`
+
 test('Verify Login with Valid credentials', async ({ page }) => {
 
-    await page.goto('/web/index.php/auth/login')
+    await page.goto(endpoint)
 
     console.log(process.env.APP_USERNAME)
 
-    await page.locator("//input[@placeholder='Username']").fill(process.env.user_name)
+    await page.locator('//input[@placeholder="Username"]').fill(username)
 
-    await page.locator("//input[@type='password']").fill(process.env.APP_PASSWORD)
+    await page.locator("//input[@type='password']").fill(password)
 
     await page.locator("//button[@type='submit']").click()
 
@@ -26,9 +33,9 @@ test('Verify Login with Valid credentials', async ({ page }) => {
 
 test('Verify Login with Valid Username and Invalid Password', async ({ page }) => {
 
-    await page.goto('/web/index.php/auth/login')
+    await page.goto(endpoint)
 
-    await page.locator("//input[@placeholder='Username']").fill('Admin')
+    await page.locator("//input[@placeholder='Username']").fill(username)
 
     await page.locator("//input[@type='password']").fill('fejbewhjfb')
 
@@ -43,7 +50,7 @@ test('Verify Login with Valid Username and Invalid Password', async ({ page }) =
 
 test('Verify Login with INValid Username and valid Password', async ({ page }) => {
 
-    await page.goto('/web/index.php/auth/login')
+    await page.goto(endpoint)
 
     await page.locator("//input[@placeholder='Username']").fill('vjfewf')
 
@@ -60,7 +67,7 @@ test('Verify Login with INValid Username and valid Password', async ({ page }) =
 
 test('Verify Login with INValid Username and Invalid Password', async ({ page }) => {
 
-    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    await page.goto(endpoint)
 
     await page.locator("//input[@placeholder='Username']").fill('vjfewf')
 
