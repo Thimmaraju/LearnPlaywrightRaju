@@ -50,17 +50,28 @@ test('Verify Login with Valid Username and Invalid Password', async ({ page }) =
 
 test('Verify Login with INValid Username and valid Password', async ({ page }) => {
 
+    const credentials = {
+
+     username : "bvcb",
+     password : "admin123"
+}
+
+//delete credentials['password']
     await page.goto(endpoint)
 
-    await page.locator("//input[@placeholder='Username']").fill('vjfewf')
+    credentials['username'] ="erjfbvhjwb"
 
-    await page.locator("//input[@type='password']").fill('admin123')
+    await page.locator("//input[@placeholder='Username']").fill(credentials.username)
+
+    await page.locator("//input[@type='password']").fill(credentials.password)
 
     await page.locator("//button[@type='submit']").click()
 
     // verify method1 
 
     await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
+
+    
 
 })
 
