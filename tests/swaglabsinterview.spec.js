@@ -18,7 +18,7 @@ test('Add product', async ({ page }) => {
 
       console.log(sortedAsc[sortedAsc.length-2])
 
-      await page.locator(``).click()
+      await page.locator(`//div[@class="pricebar"]/div[contains(., "${sortedAsc[sortedAsc.length-2]}")]/../button`).click()
 
       
 })
