@@ -16,9 +16,9 @@ test('Add product', async ({ page }) => {
 
       let sortedAsc = prices.slice().sort((a, b) => parseFloat(a.slice(1)) - parseFloat(b.slice(1)));
 
-      console.log(sortedAsc[sortedAsc.length-2])
+      console.log(sortedAsc[0])
 
-      await page.locator(`//div[@class="pricebar"]/div[contains(., "${sortedAsc[sortedAsc.length-2]}")]/../button`).click()
+      await page.locator(`//div[@class="pricebar"]/div[contains(., "${sortedAsc[0]}")]/../button`).click()
 
       
 })

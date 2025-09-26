@@ -1,79 +1,162 @@
 
-arr = []  //JS  - emptybArray with out element s
+// arr = []  //JS  - emptybArray with out element s
 
-//arr = {} // JAVA 
-
-
-arr1 = [2,5,6,7,8,9,3,5,7,8,9,3,45,46]
-
-arr2 = ["Raju", 34, true , null , undefined].sort()
-
-console.log(arr2)
-
-//.length
-
-//elements index always starts from 0
-
-console.log(arr1.length  )
+// //arr = {} // JAVA 
 
 
-console.log(arr1[5])
+// arr1 = [2,5,6,7,8,9,3,5,7,8,9,3,45,46]
+
+// arr2 = ["Raju", 34, true , null , undefined].sort()
+
+// console.log(arr2)
+
+// //.length
+
+// //elements index always starts from 0
+
+// console.log(arr1.length  )
 
 
-console.log(arr2[0])
+// console.log(arr1[5])
 
-console.log(arr1[arr1.length-2])
 
-//join 2 arrays 
+// console.log(arr2[0])
 
-arr3 = arr1.concat(arr2)
+// console.log(arr1[arr1.length-2])
 
-console.log(arr3)
+// //join 2 arrays 
 
-arr4 = ["raju", 'bharath', 'Sumanth', 'padma', 'Navya', 'lakshmi']
+// arr3 = arr1.concat(arr2)
 
-//.sort()
+// console.log(arr3)
 
-arr5 = arr4.sort()
+// arr4 = ["raju", 'bharath', 'Sumanth', 'padma', 'Navya', 'lakshmi']
 
-console.log(arr5)
+// //.sort()
 
-arr6 = [3,8,9,2,5,1].sort()
+// arr5 = arr4.sort()
 
-console.log(arr6)
+// console.log(arr5)
 
-///reverse()
+// arr6 = [3,8,9,2,5,1].sort()
 
-arr7 =  [3,8,9,2,5,1]
+// console.log(arr6)
 
-arr8 = arr7.reverse()
+// ///reverse()
 
-console.log(arr8)
+// arr7 =  [3,8,9,2,5,1]
 
-//split() connvert string to array 
+// arr8 = arr7.reverse()
 
-str = "manjunath is from bangalore"
+// console.log(arr8)
 
-arr9 =str.split(" ")
+// //split() connvert string to array 
 
-console.log(arr9)
+// str = "manjunath is from bangalore"
 
-//join() converts array to string 
+// arr9 =str.split(" ")
 
-arr10 = [ 'manjunath', 'is', 'from', 'bangalore' ]
+// console.log(arr9)
 
-str2 = arr10.join(" ")
+// //join() converts array to string 
 
-console.log(str2)
+// arr10 = [ 'manjunath', 'is', 'from', 'bangalore' ]
 
-str = "Javascript"
+// str2 = arr10.join(" ")
 
-revstr = str.split("").reverse().join("")
+// console.log(str2)
 
-console.log(revstr)
+// str = "Javascript"
 
-prices = [ '$29.99', '$9.99', '$15.99', '$49.99', '$7.99', '$15.99' ]
+// revstr = str.split("").reverse().join("")
 
-let sortedAsc = prices.slice().sort((a, b) => parseFloat(a.slice(1)) - parseFloat(b.slice(1)));
-console.log("Ascending:", sortedAsc);
+// console.log(revstr)
+
+// prices = [ '$29.99', '$9.99', '$15.99', '$49.99', '$7.99', '$15.99' ]
+
+// let sortedAsc = prices.slice().sort((a, b) => parseFloat(a.slice(1)) - parseFloat(b.slice(1)));
+// console.log("Ascending:", sortedAsc);
+
+
+// // Push - to add elements at end of the Array
+
+// //Unshift() - to add elements at beginning 
+
+// ar1 = ["wakup", "eat", "sleep"]
+
+// ar1.push("read", "Exersize")
+
+// ar1.unshift("Raju", "bharath")
+
+// console.log(ar1)
+
+// //pop will remove the last element
+
+// // shift will remobve the first element 
+
+// ar1.pop()
+
+// ar1.pop()
+
+// ar1.pop()
+
+// ar1.shift()
+
+
+// console.log(ar1)
+// ar2 = ["raju", "bharth", "padma"]
+
+// ar2[2] = "Manju"
+
+// console.log(ar2)
+
+// console.log(ar2[5])
+
+// //includes 
+
+
+// ar3 = [ 'bharath', 'wakup', 'eat' ]
+
+// console.log(ar3.includes("eat"))
+
+// //indexOf
+
+// console.log(ar3.indexOf("wakup"))
+
+
+
+// array.forEach(element => {
+
+// });
+
+
+jobtitles = ["SDET1", "Account Assistant", "Content writer"]
+
+
+//  jobtitles.forEach(element => {
+
+//     console.log("loop starts")
+
+//     console.log(element)
+
+//       console.log("loop Ends")
+//  });
+
+
+for (let title of jobtitles) {
+
+    console.log("loop starts")
+
+    console.log(title)
+
+    console.log("loop Ends")
+}
+
+//slice()
+//splice()
+//map()
+//reduce()
+//filter()
+
+//arr = [1,3,4,5,6,7,8,9,22,34,55,66,77]
 
