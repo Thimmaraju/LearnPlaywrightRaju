@@ -109,3 +109,5 @@ const cal2 = new Calculator(7,3)
 // console.log(cal2.stname) 
 
 //cal2.raju(5,8)
+
+
