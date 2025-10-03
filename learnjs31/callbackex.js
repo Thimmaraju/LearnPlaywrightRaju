@@ -65,72 +65,72 @@
 // To Make Asynchronus we are using callback function
 
 
-console.log("Bharath")
+// console.log("Bharath")
 
-setTimeout( function (){
-    console.log("This is Anonymous function ")
-}, 5000)
+// setTimeout( function (){
+//     console.log("This is Anonymous function ")
+// }, 5000)
 
-console.log("Raju")
+// console.log("Raju")
 
-//setTimeout( function , time)
+// //setTimeout( function , time)
 
-//Here we using Anonymous function as a callback function 
+// //Here we using Anonymous function as a callback function 
 
-//closure function  - closure function is a callback function but when it is executing it will access some data from higher order function 
+// //closure function  - closure function is a callback function but when it is executing it will access some data from higher order function 
 
-function add(n1, n2){
+// function add(n1, n2){
 
-    console.log(n1+n2)
-}
+//     console.log(n1+n2)
+// }
 
-function displaymessage(n1){
+// function displaymessage(n1){
 
-    console.log("this is simple callback" + n1)
-}
+//     console.log("this is simple callback" + n1)
+// }
 
-function calculator(num1, num2, callback, callback2){
+// function calculator(num1, num2, callback, callback2){
 
-    console.log(num1)
-    console.log(num2)
+//     console.log(num1)
+//     console.log(num2)
 
-    let x = 6
+//     let x = 6
 
-    callback(x)
+//     callback(x)
 
-    callback2(num1, num2)
-}
+//     callback2(num1, num2)
+// }
 
-calculator(4,7, displaymessage, add)
+// calculator(4,7, displaymessage, add)
 
-//callback  - Promises 
+// //callback  - Promises 
 
 
-function step1(value, callback) {
-    callback(value + 10, false);
-}
+// function step1(value, callback) {
+//     callback(value + 10, false);
+// }
 
-function step2(value, callback) {
-    callback(value + 10, false);
-}
+// function step2(value, callback) {
+//     callback(value + 10, false);
+// }
 
-function step3(value, callback) {
-    callback(value + 10, false);  //40
-}
+// function step3(value, callback) {
+//     callback(value + 10, false);  //40
+// }
 
-step1(10, function (result1, boolvalue) {
-    if (!boolvalue) {
-        step2(result1, function (result2, boolvalue) {
-            if (!boolvalue) {
-                step3(result2, function (result3, boolvalue) {
-                    if (!boolvalue) {
-                        console.log("Results " + result3);
-                    }
-                })
-            }
-        })
-    }
-});
+// step1(10, function (result1, boolvalue) {
+//     if (!boolvalue) {
+//         step2(result1, function (result2, boolvalue) {
+//             if (!boolvalue) {
+//                 step3(result2, function (result3, boolvalue) {
+//                     if (!boolvalue) {
+//                         console.log("Results " + result3);
+//                     }
+//                 })
+//             }
+//         })
+//     }
+// });
 
 
 
@@ -139,3 +139,52 @@ step1(10, function (result1, boolvalue) {
 // Bharth  -  will take value and will have callback
 
 // Sumanth - will take value and will have callback
+
+
+//Using Promises 
+
+
+
+   function step1(value, error) {
+    return new Promise((resolve, reject) => {
+      if (error) { 
+        reject('Something went wrong');
+      } else {
+         resolve(value + 10);
+      }
+    });
+  }
+  
+  function step2(value, error) {
+    return new Promise((resolve, reject) => {
+      if (error) { 
+        reject('Something went wrong');
+      } else {
+        resolve(value + 10); 
+      }
+    });
+  }
+  
+  function step3(value, error) {
+    return new Promise((resolve, reject) => {
+      if (error) { 
+        reject('Something went wrong');
+      } else {
+        resolve(value + 10);
+      }
+    });
+  }
+  
+  // Usage:
+   step1(10, false)
+     .then((result1) => step2(result1, false))
+     .then((result2) => step3(result2, false))
+     .then((result3) => console.log(result3))
+     .catch((error) => console.log(error));
+
+     //all our Playwright commnads will return promise
+
+    // page.goto("url")
+
+    // to get the value inside Promise instead of .then  We can Use await 
+    // Provided the condition the higer order function should be async 

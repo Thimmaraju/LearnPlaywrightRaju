@@ -51,10 +51,36 @@
 
 //=======================================================================
 
+// function step1(value) {
+//     return new Promise((resolve, reject) => {
+//       // Simulating the callback behavior
+//       resolve(value + 10); // Resolving the promise with the result
+//     });
+//   }
+
+
+//    step1(5)
+//     .then(result => {
+//       console.log("Result: " + result); // If promise is resolved, print the result //15
+//     })
+//     .catch(error => {
+//       console.log("An error occurred"); // If promise is rejected, handle error
+//     });
+
+ // ====================================
+
 async function step1(value) {
     return value + 10;
   }
 
+// async  function execute (){
+
+//   let result1 = await step1(10)
+
+//   console.log(result1)
+// }
+
+// execute()
   //Promise{ 15}
   
   async function step2(value) {
@@ -81,7 +107,7 @@ async function step1(value) {
    run();
   
 
-  //=====================================================
+//   //=====================================================
 
  // Advantages of Async and Await
       //Improved Readability: Async and Await allow asynchronous code to be written 
@@ -144,3 +170,8 @@ async function step1(value) {
 // chat gpt 
 // github copilot 
 
+
+
+
+
+  

@@ -1,4 +1,4 @@
-// const { StatementSync } = require("node:sqlite");
+
 
 
 // const p = new Promise((resolve, reject) => {
@@ -104,17 +104,17 @@
 // rejected 
 
 
-//    const p1 = Promise.resolve('Like If you understood callbacks');
+    const p1 = Promise.resolve('Like If you understood callbacks');
 
-//   // const p2 = Promise.reject('Rejected');
-//    const p3 = 100;
-//   const p4 = new Promise((resolve, reject) => {
-//       setTimeout(resolve, 10000, 'Subscribe for more updates');
-//   });
+ //const p2 = Promise.reject('Rejected');
+    const p3 = 100;
+   const p4 = new Promise((resolve, reject) => {
+       setTimeout(resolve, 10000, 'Subscribe for more updates');
+   });
 
-//  const p5 = new Promise((resolve, reject) => {
-//    setTimeout(resolve, 5000, 'Subscribe for less updates');
-//  });
+ const p5 = new Promise((resolve, reject) => {
+   setTimeout(resolve, 5000, 'Subscribe for less updates');
+ });
 
 //  p1.then(message => console.log(message))
 //  // p3.then(num => console.log(num))
@@ -124,15 +124,15 @@
 
 
 //to loop the promise 
-//Promise.all([ p1, p3 ,p4, p5]).then((values) => console.log(values)); // resolved values 
-//Promise.race([ p4, p5 ]).then((value) => console.log(value)); // whichever first resolved value 
-//Promise.allSettled([ p1, p2, p3, p4, p5 ]).then((values) => console.log(values)); // resolved and rejected both 
-//Promise.any([ p4, p5 ]).then((values) => console.log(values));
+Promise.all([ p1, p3 ,p4, p5]).then((values) => console.log(values)); // resolved values 
+Promise.race([ p4, p5 ]).then((value) => console.log(value)); // whichever first resolved value 
+Promise.allSettled([ p1, p2, p3, p4, p5 ]).then((values) => console.log(values)); // resolved and rejected both 
+Promise.any([ p4, p5 ]).then((value) => console.log(value));
 
 //async await
 
-async function printRaju() {
-    console.log("Raju");
-}
+// async function printRaju() {
+//     console.log("Raju");
+// }
 
-printRaju()
+// printRaju()
