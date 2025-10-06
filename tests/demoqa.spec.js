@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 
-test.only('Verify Demo QA Text box fields', async ({ page }) => {
+test('Verify Demo QA Text box fields', async ({ page }) => {
 
  let data = ["Manju", "rajutester2673@gamil.com", "Bangalore", "ATP"]
 

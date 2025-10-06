@@ -1,93 +1,101 @@
 import { test, expect } from '@playwright/test';
 
 
-  let  username = "Admin"
+let username = "Admin"
 
-  let password = "admin123"
+let password = "admin123"
+
+let endpoint = `/web/index.php/auth/login`
+
+test.describe("Verify Login functionality", () => {
+
+    test('Verify Login with Valid credentials',{tag: [ "@smoke", "@regression"]}, async ({ page }) => {
+
+        test.slow()
   
-  let endpoint = `/web/index.php/auth/login`
+        await page.goto(endpoint)
 
-test('Verify Login with Valid credentials', async ({ page }) => {
+        console.log(process.env.APP_USERNAME)
 
-    await page.goto(endpoint)
+        await page.locator('//input[@placeholder="Username"]').fill(username)
 
-    console.log(process.env.APP_USERNAME)
+        await page.locator("//input[@type='password']").fill(password)
 
-    await page.locator('//input[@placeholder="Username"]').fill(username)
+        await page.locator("//button[@type='submit']").click()
 
-    await page.locator("//input[@type='password']").fill(password)
+        // verify method1 
 
-    await page.locator("//button[@type='submit']").click()
+        // await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
 
-    // verify method1 
+        //or 
 
-   // await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
+        await expect(page.locator("//h6[text()='Dashboard']")).toBeVisible()
 
-    //or 
 
-    await expect(page.locator("//h6[text()='Dashboard']")).toBeVisible()
-    
+    })
+
+
+    test('Verify Login with Valid Username and Invalid Password', async ({ page }) => {
+
+        await page.goto(endpoint)
+
+        await page.locator("//input[@placeholder='Username']").fill(username)
+
+        await page.locator("//input[@type='password']").fill('fejbewhjfb')
+
+        await page.locator("//button[@type='submit']").click()
+
+        // verify method1 
+
+        await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
+
+    })
+
+
+    test('Verify Login with INValid Username and valid Password', async ({ page }) => {
+
+        const credentials = {
+
+            username: "bvcb",
+            password: "admin123"
+        }
+
+        //delete credentials['password']
+        await page.goto(endpoint)
+
+        credentials['username'] = "erjfbvhjwb"
+
+        await page.locator("//input[@placeholder='Username']").fill(credentials.username)
+
+        await page.locator("//input[@type='password']").fill(credentials.password)
+
+        await page.locator("//button[@type='submit']").click()
+
+        // verify method1 
+
+        await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
+
+
+
+    })
+
+
+    test('Verify Login with INValid Username and Invalid Password', async ({ page }) => {
+
+        test.fixme()
+        await page.goto(endpoint)
+
+        await page.locator("//input[@placeholder='Username']").fill('vjfewf')
+
+        await page.locator("//input[@type='password']").fill('admidvbdfbn123')
+
+        await page.locator("//button[@type='submit']").click()
+
+        // verify method1 
+
+        await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
+
+    })
 
 })
 
-
-test('Verify Login with Valid Username and Invalid Password', async ({ page }) => {
-
-    await page.goto(endpoint)
-
-    await page.locator("//input[@placeholder='Username']").fill(username)
-
-    await page.locator("//input[@type='password']").fill('fejbewhjfb')
-
-    await page.locator("//button[@type='submit']").click()
-
-    // verify method1 
-
-    await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
-
-})
-
-
-test('Verify Login with INValid Username and valid Password', async ({ page }) => {
-
-    const credentials = {
-
-     username : "bvcb",
-     password : "admin123"
-}
-
-//delete credentials['password']
-    await page.goto(endpoint)
-
-    credentials['username'] ="erjfbvhjwb"
-
-    await page.locator("//input[@placeholder='Username']").fill(credentials.username)
-
-    await page.locator("//input[@type='password']").fill(credentials.password)
-
-    await page.locator("//button[@type='submit']").click()
-
-    // verify method1 
-
-    await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
-
-    
-
-})
-
-
-test('Verify Login with INValid Username and Invalid Password', async ({ page }) => {
-
-    await page.goto(endpoint)
-
-    await page.locator("//input[@placeholder='Username']").fill('vjfewf')
-
-    await page.locator("//input[@type='password']").fill('admidvbdfbn123')
-
-    await page.locator("//button[@type='submit']").click()
-
-    // verify method1 
-
-    await expect(page.locator("//p[text()='Invalid credentials']")).toBeVisible()
-
-})

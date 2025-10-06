@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 //for (let i = 1; i <= 10; i++) {
 
-    test(`check box `, async ({ page }) => {
+    test(`check box `,{tag : "@smoke"}, async ({ page }) => {
 
         await page.goto('https://register.rediff.com/register/register.php?FormName=user_details')
 

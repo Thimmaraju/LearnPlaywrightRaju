@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Get total price of  2 products ', async ({ page }) => {
+test('Get total price of  2 products ',{tag: "@regression"}, async ({ page }) => {
 
     await page.goto('https://www.flipkart.com/')
 
