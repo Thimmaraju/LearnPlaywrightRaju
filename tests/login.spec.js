@@ -9,11 +9,15 @@ let endpoint = `/web/index.php/auth/login`
 
 test.describe("Verify Login functionality", () => {
 
-    test('Verify Login with Valid credentials',{tag: [ "@smoke", "@regression"]}, async ({ page }) => {
+    test.beforeEach(async ({ page }) => {
+
+        await page.goto(endpoint)
+
+    })
+
+    test('Verify Login with Valid credentials', { tag: ["@smoke", "@regression"] }, async ({ page }) => {
 
         test.slow()
-  
-        await page.goto(endpoint)
 
         console.log(process.env.APP_USERNAME)
 
@@ -37,8 +41,6 @@ test.describe("Verify Login functionality", () => {
 
     test('Verify Login with Valid Username and Invalid Password', async ({ page }) => {
 
-        await page.goto(endpoint)
-
         await page.locator("//input[@placeholder='Username']").fill(username)
 
         await page.locator("//input[@type='password']").fill('fejbewhjfb')
@@ -60,9 +62,6 @@ test.describe("Verify Login functionality", () => {
             password: "admin123"
         }
 
-        //delete credentials['password']
-        await page.goto(endpoint)
-
         credentials['username'] = "erjfbvhjwb"
 
         await page.locator("//input[@placeholder='Username']").fill(credentials.username)
@@ -83,7 +82,6 @@ test.describe("Verify Login functionality", () => {
     test('Verify Login with INValid Username and Invalid Password', async ({ page }) => {
 
         test.fixme()
-        await page.goto(endpoint)
 
         await page.locator("//input[@placeholder='Username']").fill('vjfewf')
 
