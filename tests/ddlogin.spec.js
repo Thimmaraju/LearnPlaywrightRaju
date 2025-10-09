@@ -2,14 +2,17 @@ import { test, expect } from '@playwright/test';
 import { loginPage } from "../pages/loginpage.po"
 import data from "../testData/logindata.json"
 
+import creds from "../testData/logincreds.json"
+
 let page
 
 let login
 
 test.describe("Verify Login functionality", () => {
 
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach(async ({ browser }) => {
 
+        page = await browser.newPage()
         login = new loginPage(page)
         await login.launchUrl()
         await login.verifyLogo()
